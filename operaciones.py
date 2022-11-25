@@ -239,4 +239,9 @@ def potencia():
         r= r * n
         i=i+1
     return r
+def raiz (n):
+    x=0
+    while x * x <= n:
+        x+=0.1
+    return x
 

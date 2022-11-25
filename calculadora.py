@@ -110,17 +110,18 @@ def main():
             print("cientifica")
             menu_cientifica()
             op=input("seleccione la operacion: ")
-            if op=="1":
-                print("el resultado de la potencia es: ", math.exp())
-            elif op=="2":
-                print("el resultado de la raiz es: " , math.sqrt())
-            elif op=="3":
-                print("el resultado del logaritmo es: " , math.log())
-            elif op=="4":
-                print("el resultado del logaritmo en base 2 es: " , math.log2())
-            elif op=="5":
-                print("el resultado del logaritmo en base 10 es: " , math.log10())
-            input("ingrese enter para continuar")
-        elif tc=="s":
+            while op !=6:
+                if op=="1":
+                    print("el resultado de la potencia es: ", math.pow())
+                elif op=="2":
+                    print("el resultado de la raiz es: " , math.sqrt())
+                elif op=="3":
+                    print("el resultado del logaritmo es: " , math.log())
+                elif op=="4":
+                    print("el resultado del logaritmo en base 10 es: " , math.log10())
+                elif op=="5":
+                    print("el resultado del exponente es: " , math.exp())
+                input("ingrese enter para continuar")
+        else tc=="s":
             print("saliendo")
             break
