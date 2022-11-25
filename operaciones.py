@@ -1,30 +1,221 @@
-#from tkinter import * # Importa el módulo
-#def centrar(ventana):
-#    ventana.update_idletasks()
- #   w=ventana.winfo_width()
-#    h=ventana.winfo_height()
-#    extraW=ventana.winfo_screenwidth()-w
-#    extraH=ventana.winfo_screenheight()-h
-#    ventana.geometry("%dx%d%+d%+d" % (w,h,extraW/2,extraH/2))
-#def mostrar(ventana):
-#    ventana.deiconify()
-#def ocultar(ventana):
-#    ventana.withdraw()
-#def ejecutar(f): v0.after(200,f) # Una forma alternativa de ejecutar una función
-#v0 = Tk() # Tk() Es la ventana principal
-#v0.config(bg="black") # Le da color al fondo
-#v0.geometry("500x500") # Cambia el tamaño de la ventana
-#b1=Button(v0,text="ABRIR VENTANA V1",command=lambda:
-#    ejecutar(mostrar(v1))) # Primer botón
-#b1.grid(row=1,column=1) # El botón es cargado
-#b2=Button(v0,text="OCULTAR VENTANA V1",command=lambda:
-#    ejecutar(ocultar(v1))) # Segundo botón
-#b2.grid(row=1,column=2) # El botón es cargado
-#v1=Toplevel(v0) # Crea una ventana hija
-#v1.withdraw() # oculta v1
-#v0.mainloop() # Es el evento que llama al inicio de nuestro programa.
-#Siempre lo lleva la ventana principal.
+from tkinter import *
+def envia_boton(valor):
+   anterior = pantalla.get()
+   pantalla.delete(0, END)
+   pantalla.insert(0, str(anterior) + str(valor))
+def suma():
+   global num1
+   global operacion
+   num1 = pantalla.get()
+   num1 = float(num1)
+   pantalla.delete(0,END)
+   operacion = "+"
+def resta():
+    global num1
+    global operacion
+    num1 = pantalla.get()
+    num1 = float(num1)
+    pantalla.delete(0, END)
+    operacion = "-"
+def multiplicacion():
+    global num1
+    global operacion
+    num1 = pantalla.get()
+    num1 = float(num1)
+    pantalla.delete(0, END)
+    operacion = "*"
+def division():
+    global num1
+    global operacion
+    num1 = pantalla.get()
+    num1 = float(num1)
+    pantalla.delete(0, END)
+    operacion = "/"
+def borrar():
+    pantalla.delete(0, END)
+def borrar_uno():
+    largo = len(pantalla.get())
+    pantalla.delete(largo-1, END)
+def igual():
+    global num2
+    num2 = pantalla.get()
+    pantalla.delete(0, END)
 
+    if operacion == "+":
+        pantalla.insert(0, num1 + float(num2))
+    if operacion == "-":
+        pantalla.insert(0, num1 - float(num2))
+    if operacion == "*":
+        pantalla.insert(0, num1 * float(num2))
+    if operacion == "/":
+        pantalla.insert(0, num1 / float(num2))
+
+root = Tk()
+root.title("Calculadora básica")
+root.resizable(0, 0)
+pantalla = Entry(root,
+               width=22,
+               bg="black",
+               fg="white",
+               borderwidth=0,
+               justify=RIGHT,
+               font=('arial', 18, 'bold'))
+
+pantalla.grid(row=0, padx=2, pady=2, columnspan=4)
+
+
+boton_1 = Button(root,text="1",
+               width=9,
+               height=3,
+               bg="white",
+               fg="red",
+               borderwidth=0,
+               cursor="hand2",command=lambda: envia_boton(1)).grid(row=1, column=0, padx=1, pady=1)
+
+boton_2 = Button(root,text="2",
+               width=9,
+               height=3,
+               bg="white",
+               fg="red",
+               borderwidth=0,
+               cursor="hand2",
+               command=lambda: envia_boton(2)).grid(row=1, column=1, padx=1, pady=1)
+
+boton_3 = Button(root,text="3",
+               width=9,
+               height=3,
+               bg="white",
+               fg="red",
+               borderwidth=0,
+               cursor="hand2",
+               command=lambda: envia_boton(3)).grid(row=1, column=2, padx=1, pady=1)
+
+boton_4 = Button(root,text="4",
+               width=9,
+               height=3,
+               bg="white",
+               fg="red",
+               borderwidth=0,
+               cursor="hand2",
+               command=lambda: envia_boton(4)).grid(row=2, column=0, padx=1, pady=1)
+
+boton_5 = Button(root,text="5",
+               width=9,
+               height=3,
+               bg="white",
+               fg="red",
+               borderwidth=0,
+               cursor="hand2",
+               command=lambda: envia_boton(5)).grid(row=2, column=1, padx=1, pady=1)
+
+boton_6 = Button(root,text="6",
+               width=9,
+               height=3,
+               bg="white",
+               fg="red",
+               borderwidth=0,
+               cursor="hand2",
+               command=lambda: envia_boton(6)).grid(row=2, column=2, padx=1, pady=1)
+
+boton_7 = Button(root,text="7",
+               width=9,
+               height=3,
+               bg="white",
+               fg="red",
+               borderwidth=0,
+               cursor="hand2",
+               command=lambda: envia_boton(7)).grid(row=3, column=0, padx=1, pady=1)
+
+boton_8 = Button(root,text="8",
+               width=9,
+               height=3,
+               bg="white",
+               fg="red",
+               borderwidth=0,
+               cursor="hand2",
+               command=lambda: envia_boton(8)).grid(row=3, column=1, padx=1, pady=1)
+
+boton_9 = Button(root,text="9",
+               width=9,
+               height=3,
+               bg="white",
+               fg="red",
+               borderwidth=0,
+               cursor="hand2",
+               command=lambda: envia_boton(9)).grid(row=3, column=2, padx=1, pady=1)
+
+
+boton_igual = Button(root,text="=",
+               width=20,
+               height=3,
+               bg="red",
+               fg="white",
+               borderwidth=0,
+               cursor="hand2",
+               command=igual).grid(row=4, column=0, columnspan=2, padx=1, pady=1)
+
+boton_punto = Button(root,text=".",
+               width=9,
+               height=3,
+               bg="spring green",
+               fg="black",
+               cursor="hand2",
+               borderwidth=0,
+               command=lambda: envia_boton(".")).grid(row=4, column=2, padx=1, pady=1)
+
+boton_mas = Button(root,text="+",
+               width=9,
+               height=3,
+               bg="deep sky blue",
+               fg="black",
+               borderwidth=0,
+               cursor="hand2",
+               command=suma).grid(row=1, column=3, padx=1, pady=1)
+
+boton_menos = Button(root,text="-",
+               width=9,
+               height=3,
+               bg="deep sky blue",
+               fg="black",
+               borderwidth=0,
+               cursor="hand2",
+               command=resta).grid(row=2, column=3, padx=1, pady=1)
+
+boton_multiplicacion = Button(root,text="*",
+               width=9,
+               height=3,
+               bg="deep sky blue",
+               fg="black",
+               borderwidth=0,
+               cursor="hand2",
+               command=multiplicacion).grid(row=3, column=3, padx=1, pady=1)
+
+boton_division = Button(root,text="/",
+               width=9,
+               height=3,
+               bg="deep sky blue",
+               fg="black",
+               borderwidth=0,
+               cursor="hand2",
+               command=division).grid(row=4, column=3, padx=1, pady=1)
+boton_despejar = Button(root,text="Borrar",
+               width=20,
+               height=3,
+               bg="deep sky blue",
+               fg="black",
+               borderwidth=0,
+               cursor="hand2",
+               command=borrar).grid(row=5, column=0,columnspan=2,  padx=1, pady=1)
+boton_despejar_uno = Button(root,text="Borrar Uno",
+               width=20,
+               height=3,
+               bg="deep sky blue",
+               fg="black",
+               borderwidth=0,
+               cursor="hand2",
+               command=borrar_uno).grid(row=5, column=2,columnspan=2, padx=1, pady=1)
+
+mainloop()
 
 #  creo las funciones para las operaciones
 
