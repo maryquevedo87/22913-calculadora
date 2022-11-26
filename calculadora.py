@@ -1,4 +1,3 @@
-import math
 import os
 import statistics
 from operaciones import*
@@ -78,7 +77,7 @@ def main():
                     datos=cargar_datos(datos)
                 elif op=="1":
                     if len(datos)>0:
-                        print("la media es: ",statistics.mean(datos))
+                        print("la media es: ", statistics.mean(datos))
                     else:
                         print("no hay datos cargados")
                 elif op=="2":
@@ -107,6 +106,7 @@ def main():
                 menu_estadistica()
                 op=input("ingrese una operación ")
         elif tc=="c":
+            import math
             print("cientifica")
             menu_cientifica()
             op=input("seleccione la operacion: ")
