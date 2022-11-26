@@ -1,15 +1,16 @@
 import os
-import statistics
-from operaciones import*
+import statistics 
+from operaciones import *
 
+# funcion para el menu normal y cientifica
 def menu():
     os.system("cls")
     print("+ para sumar")
     print("- para restar")
     print("/ para dividir")
-    print("* para multiplicar")
+    print("* para Multiplicar")
     print("s para salir")
-
+# funcion para el menu de estadistica
 def menu_estadistica():
     os.system("cls")
     print("1 para media")
@@ -19,7 +20,7 @@ def menu_estadistica():
     print("5 para desviacion estandar")
     print("6 para cargar datos")
     print("7 para salir")
-
+#funcion para menu de calc cientifica
 def menu_cientifica():
     os.system("cls")
     print("1 para potencia")
@@ -28,7 +29,7 @@ def menu_cientifica():
     print("4 para coseno")
     print("5 para tangente")
     print("6 para Salir")
-
+#funcion para la carga de datos a una lista de datos estadisticos
 def cargar_datos(datos):
     while True:
         d=int(input("ingrese un dato: "))
@@ -38,7 +39,7 @@ def cargar_datos(datos):
         if op=="n":
             break
     return datos
-
+# funcion principal
 def main():
         
     while True:
@@ -106,22 +107,27 @@ def main():
                 menu_estadistica()
                 op=input("ingrese una operación ")
         elif tc=="c":
-            import math
             print("cientifica")
             menu_cientifica()
             op=input("seleccione la operacion: ")
-            while op !=6:
-                if op=="1":
-                    print("el resultado de la potencia es: ", math.pow())
-                elif op=="2":
-                    print("el resultado de la raiz es: " , math.sqrt())
-                elif op=="3":
-                    print("el resultado del logaritmo es: " , math.log())
-                elif op=="4":
-                    print("el resultado del logaritmo en base 10 es: " , math.log10())
-                elif op=="5":
-                    print("el resultado del exponente es: " , math.exp())
+            if op=="1":
+                print("el resultado de la potencia es: ", potencia())
                 input("ingrese enter para continuar")
-        else tc=="s":
+            elif op=="2":
+                print("el resultado de la raiz es: ")
+            elif op=="3":
+                print("el resultado de seno es: ")
+            elif op=="4":
+                print("el resultado de coseno es: ")
+            elif op=="5":
+                print("el resultado de tangente es: ")
+            input("ingrese enter para continuar ")
+            menu_cientifica()
+            op=input("ingrese una operación ")
+        elif tc=="s":
             print("saliendo")
             break
+
+# aca empieza el programa
+
+main()
